@@ -29,7 +29,38 @@ def find_videos(topic):
     return
 
 def summarize_video(video_url):
-    return
+
+    # TODO Audio-to-speech API for getting the transcript of the video
+
+    summarize_video = Agent(
+        role="Video Summarizer Agent",
+        goal="Summarize the key learning points of a given youtube video",
+        backstory="Specializing in summarizing videos, this ",
+        verbose=True,
+        allow_delegation=False,
+        tools=[SerperDevTool(api_key=serper_api_key)]
+    )
+
+    summarize = Task(
+        description=(
+            "Summarize the key learning points of a given youtube video"
+        ),
+        expected_output=(
+            "A summary of the key learning points of the video in 1-2 sentences and 5-6 bullet points"
+        ),
+        agent=summarize_video
+    )
+
+    video_crew = Crew(
+        agents=[summarize_video],
+        tasks=[summarize],
+        manager_llm=ChatOpenAI(model="gpt-3.5-turbo", temperature=0.7),
+        verbose=True
+    )
+
+    result = video_crew.kickoff()
+    return result
+
 
 def make_quiz():
     return
