@@ -24,7 +24,6 @@ serper_api_key = os.getenv('SERPER_API_KEY')
 os.environ["OPENAI_MODEL_NAME"] = 'gpt-3.5-turbo'
 
 
-
 def find_videos(topic):
     return
 
@@ -63,6 +62,8 @@ def summarize_video(video_url):
 
 
 def make_quiz():
+    # TODO: Implement a quiz maker agent/ copilot and Powerpoint?
+    # Kahoot API etc?
     return
 
 
