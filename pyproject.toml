@@ -1,0 +1,20 @@
+[project]
+name = "youtube_learning_assistant"
+version = "0.1.0"
+description = "youtube-learning-assistant using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<=3.13"
+dependencies = [
+    "crewai[tools]>=0.76.9,<1.0.0"
+]
+
+[project.scripts]
+youtube_learning_assistant = "youtube_learning_assistant.main:run"
+run_crew = "youtube_learning_assistant.main:run"
+train = "youtube_learning_assistant.main:train"
+replay = "youtube_learning_assistant.main:replay"
+test = "youtube_learning_assistant.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
