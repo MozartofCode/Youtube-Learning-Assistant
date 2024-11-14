@@ -8,40 +8,57 @@ class YoutubeLearningAssistantCrew():
 	"""YoutubeLearningAssistant crew"""
 
 	@agent
-	def researcher(self) -> Agent:
+	def channel_researcher(self) -> Agent:
 		return Agent(
-			config=self.agents_config['researcher'],
-			# tools=[MyCustomTool()], # Example of custom tool, loaded on the beginning of file
+			config=self.agents_config['channel_researcher'],
+			tools=[SerperDevTool],
 			verbose=True
 		)
 
 	@agent
-	def reporting_analyst(self) -> Agent:
+	def channel_analyzer(self) -> Agent:
 		return Agent(
-			config=self.agents_config['reporting_analyst'],
+			config=self.agents_config['channel_analyzer'],
+			tools=[YoutubeChannelSearchTool],
 			verbose=True
 		)
+	
+	@agent
+	def quiz_maker(self) -> Agent:
+		return Agent(
+			config=self.agents_config['quiz_maker'],
+			tools=[], #TODO: Add quiz maker tool
+			verbose=True
+		)
+	
 
 	@task
-	def research_task(self) -> Task:
+	def research_channel(self) -> Task:
 		return Task(
-			config=self.tasks_config['research_task'],
+			config=self.tasks_config['research_channel'],
 		)
 
 	@task
-	def reporting_task(self) -> Task:
+	def analyze_channel(self) -> Task:
 		return Task(
-			config=self.tasks_config['reporting_task'],
-			output_file='report.md'
+			config=self.tasks_config['analyze_channel'],
 		)
+
+
+	@task
+	def create_quiz(self) -> Task:
+		return Task(
+			config=self.tasks_config['create_quiz'],
+			#output_file='report.md'
+		)
+	
 
 	@crew
 	def crew(self) -> Crew:
 		"""Creates the YoutubeLearningAssistant crew"""
 		return Crew(
-			agents=self.agents, # Automatically created by the @agent decorator
-			tasks=self.tasks, # Automatically created by the @task decorator
+			agents=self.agents,
+			tasks=self.tasks,
 			process=Process.sequential,
 			verbose=True,
-			# process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
 		)
