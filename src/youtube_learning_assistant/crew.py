@@ -1,11 +1,7 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
+from crewai_tools import SerperDevTool, YoutubeChannelSearchTool
 
-# Uncomment the following line to use an example of a custom tool
-# from youtube_learning_assistant.tools.custom_tool import MyCustomTool
-
-# Check our tools documentations for more information on how to use them
-# from crewai_tools import SerperDevTool
 
 @CrewBase
 class YoutubeLearningAssistantCrew():
