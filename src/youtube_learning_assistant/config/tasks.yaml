@@ -1,17 +1,24 @@
-research_task:
+research_channel:
   description: >
     Conduct a thorough research about {topic}
-    Make sure you find any interesting and relevant information given
+    Make sure to find interesting and relevant information given
     the current year is 2024.
   expected_output: >
-    A list with 10 bullet points of the most relevant information about {topic}
-  agent: researcher
+    A list with 5 top youtube channel handles of the most relevant information about {topic}
+  agent: channel_researcher
 
-reporting_task:
+
+analyze_channel:
   description: >
-    Review the context you got and expand each topic into a full section for a report.
-    Make sure the report is detailed and contains any and all relevant information.
+    Analyze the content of a youtube channel and provide a detailed report of the key learning points of a youtube channel's coverage on the {topic}
   expected_output: >
-    A fully fledge reports with the mains topics, each with a full section of information.
-    Formatted as markdown without '```'
-  agent: reporting_analyst
+    A detailed report of the key learning points of a youtube channel's coverage on the {topic}
+  agent: channel_analyst
+
+
+create_quiz:
+  description: >
+    Create an engaging and informative quiz to test the knowledge of the user and teach him the important key points on {topic}
+  expected_output: >
+    An engaging and informative quiz to test the knowledge of the user and teach him the important key points on {topic}
+  agent: quiz_maker
