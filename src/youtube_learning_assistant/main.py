@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import argparse
 import sys
 from youtube_learning_assistant.crew import YoutubeLearningAssistantCrew
 
@@ -11,8 +12,11 @@ def run():
     """
     Run the crew.
     """
+
+    topic = input("Enter the topic you want to learn about: ")
+    
     inputs = {
-        'topic': 'AI LLMs'
+        'topic': topic
     }
     YoutubeLearningAssistantCrew().crew().kickoff(inputs=inputs)
 

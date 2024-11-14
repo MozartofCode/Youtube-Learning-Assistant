@@ -21,5 +21,6 @@ create_quiz:
     Create an engaging and informative quiz to test the knowledge of the user and teach him the important key points on {topic}
   expected_output: >
     An engaging and informative quiz to test the knowledge of the user and teach him the important key points on {topic}.
-    10 questions with multiple choice answers with the correct answer highlighted.
+    10 questions with multiple choice answers with the correct answer highlighted. WE DON'T CARE ABOUT THE YOUTUBE CHANNEL,
+    WE CARE ABOUT THE KNOWLEDGE ON {topic}. ONLY RETURN QUESTIONS AND ANSWERS, NO CONCLUSION OR SUMMARY...
   agent: quiz_maker
