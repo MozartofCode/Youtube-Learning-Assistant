@@ -13,12 +13,13 @@ analyze_channel:
     Analyze the content of a youtube channel and provide a detailed report of the key learning points of a youtube channel's coverage on the {topic}
   expected_output: >
     A detailed report of the key learning points of a youtube channel's coverage on the {topic}
-  agent: channel_analyst
+  agent: channel_analyzer
 
 
 create_quiz:
   description: >
     Create an engaging and informative quiz to test the knowledge of the user and teach him the important key points on {topic}
   expected_output: >
-    An engaging and informative quiz to test the knowledge of the user and teach him the important key points on {topic}
+    An engaging and informative quiz to test the knowledge of the user and teach him the important key points on {topic}.
+    10 questions with multiple choice answers with the correct answer highlighted.
   agent: quiz_maker

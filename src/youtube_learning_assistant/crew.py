@@ -11,7 +11,7 @@ class YoutubeLearningAssistantCrew():
 	def channel_researcher(self) -> Agent:
 		return Agent(
 			config=self.agents_config['channel_researcher'],
-			tools=[SerperDevTool],
+			tools=[SerperDevTool()],
 			verbose=True
 		)
 
@@ -19,7 +19,7 @@ class YoutubeLearningAssistantCrew():
 	def channel_analyzer(self) -> Agent:
 		return Agent(
 			config=self.agents_config['channel_analyzer'],
-			tools=[YoutubeChannelSearchTool],
+			tools=[YoutubeChannelSearchTool()],
 			verbose=True
 		)
 	
@@ -27,7 +27,6 @@ class YoutubeLearningAssistantCrew():
 	def quiz_maker(self) -> Agent:
 		return Agent(
 			config=self.agents_config['quiz_maker'],
-			tools=[], #TODO: Add quiz maker tool
 			verbose=True
 		)
 	
@@ -49,7 +48,7 @@ class YoutubeLearningAssistantCrew():
 	def create_quiz(self) -> Task:
 		return Task(
 			config=self.tasks_config['create_quiz'],
-			#output_file='report.md'
+			output_file='quiz.pdf'
 		)
 	
 
